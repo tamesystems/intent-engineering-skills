@@ -1,0 +1,14 @@
+skill: pave-path
+cases:
+  - name: recurring-command-shape
+    prompt: "Every new command requires the same directory, schema, handler, test, registration, and check steps. Agents keep inventing slightly different shapes. Pave the path."
+    expect:
+      - confirms the command shape is a validated repository convention before encoding it
+      - chooses the smallest affordance that removes repeated architectural invention
+      - leaves product-specific decisions explicit instead of filling them with fake defaults
+      - proves one representative output is repository-native and passes authoritative checks
+      - identifies remaining cheap competing footguns for possible ratcheting
+    reject:
+      - builds a large scaffolding framework without demonstrating need
+      - encodes unsettled architecture into a generator
+      - declares success without exercising generated or paved output

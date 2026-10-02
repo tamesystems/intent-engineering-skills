@@ -1,6 +1,6 @@
 ---
 name: intent
-description: Run the smallest sufficient intent-engineering loop for a non-trivial task. Use as the default entry point when the user wants an outcome carried through, when the next operator is not obvious, or when work may need to move backward as evidence changes. Route among ground, specify, investigate, decide, realize, verify, validate, and learn; track evidence-backed progress; and own the overall completion claim.
+description: Run the smallest sufficient intent-engineering loop for a non-trivial task. Use as the default entry point when the user wants an outcome carried through, when the next operator is not obvious, or when work may need to move backward as evidence changes. Route among ground, specify, investigate, decide, realize, verify, validate, and learn; use codebase-design skills when placement or architecture is unresolved; track evidence-backed progress; and own the overall completion claim.
 ---
 
 # Intent
@@ -16,6 +16,9 @@ Run the intent-engineering loop. This skill is the **controller**, not a ninth c
    - success or preservation conditions are materially unclear → `specify`
    - a consequential uncertainty could change the next move → `investigate`
    - multiple materially different interventions remain viable → `decide`
+   - software ownership/placement or expected blast radius is materially unclear → `design-change`, then return to the controlling operator
+   - an owning module is known but its supported surface or hidden responsibilities are materially unclear → `design-module`, then return
+   - a validated recurring architectural operation is needlessly hard or inconsistent → `pave-path`
    - a justified change must be made real → `realize`
    - technical conformance or preserved behavior is unproven → `verify`
    - technical correctness is established but intended outcome is unproven → `validate`

@@ -1,0 +1,14 @@
+skill: design-module
+cases:
+  - name: recommendation-capability
+    prompt: "Design the Recommendation module. It owns ranking policy, eligibility, persistence coordination, and provider calls. Consumers need to request and retrieve recommendations."
+    expect:
+      - defines a small caller-oriented public surface in domain language
+      - keeps ranking, persistence, and provider implementation details behind the surface
+      - introduces seams only where they provide demonstrated leverage
+      - states visibility and dependency direction separately
+      - makes the real public surface the primary behavioral test surface
+    reject:
+      - exposes database or provider objects to callers
+      - creates interfaces for every concrete implementation by default
+      - maximizes the number of packages or layers

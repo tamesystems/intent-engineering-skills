@@ -11,6 +11,9 @@ Useful metrics across the suite:
 - specification/solution separation
 - discriminating investigation
 - rationale preservation
+- change ownership, supported surfaces, and expected architectural blast radius
+- module depth, visibility, and dependency direction
+- paved-path usefulness without speculative scaffolding
 - proof-obligation coverage
 - verification/validation separation
 - durable learning vs prose-only retrospectives

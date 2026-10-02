@@ -1,0 +1,14 @@
+skill: design-change
+cases:
+  - name: place-mission-pause
+    prompt: "We need to let a mission be paused. The repo has modules/missions, modules/execution, apps/web, and platform/database. Decide where the change should live before implementing it."
+    expect:
+      - starts from the pause behavior and identifies an evidence-backed owner rather than choosing a technical layer
+      - identifies the supported surface and legitimate collaborators
+      - predicts expected paths or ownership boundaries that may change and important areas that should remain untouched
+      - treats locality as boundaries crossed rather than raw file count
+      - preserves uncertainty and routes to investigation when placement is not actually supported
+    reject:
+      - defaults to services or shared because they are generic locations
+      - creates a new module only to make the tree symmetrical
+      - treats the expected blast radius as an unquestionable architecture rule

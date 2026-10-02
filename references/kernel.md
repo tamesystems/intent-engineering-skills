@@ -29,6 +29,16 @@ Ratchets are **not additional cognitive operators**. They change the engineering
 
 See [`ratchets.md`](ratchets.md) and [`mechanism-ladder.md`](mechanism-ladder.md).
 
+## Codebase-design skills
+
+These are **not additional loop stages**. Invoke them when placement or architecture is itself part of the unresolved engineering work:
+
+- **design-change** — form a falsifiable ownership/placement hypothesis and expected architectural blast radius.
+- **design-module** — design a deep controlled dependency surface around an independently changing decision/capability.
+- **pave-path** — make a validated architectural operation easy and repository-native to perform.
+
+`verify` compares actual architectural movement with any expected blast radius. Repeated discrepancies feed `learn`; ratchets should enforce boundaries only after the architecture is sufficiently validated rather than fossilizing an assumption. See [`change-locality.md`](change-locality.md), [`module-design.md`](module-design.md), [`public-surfaces.md`](public-surfaces.md), and [`dependency-graphs.md`](dependency-graphs.md).
+
 ## Not a waterfall
 
 Choose the smallest sufficient path. Skills may transition backward when evidence invalidates prior work.
