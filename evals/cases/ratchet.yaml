@@ -1,0 +1,16 @@
+skill: ratchet
+cases:
+  - name: repeated-double-assertion
+    prompt: "Codex has twice used `as unknown as User` to silence type errors. This TypeScript repo already uses Oxlint. Ratchet this failure class."
+    expect:
+      - generalizes the problem as evidence-destroying/fabricating type assertions rather than only fixing one file
+      - inspects existing Oxlint capabilities and compatible established mechanisms before inventing a custom framework
+      - prefers executable enforcement over another AGENTS.md warning
+      - keeps or identifies a valid positive path for parsing or constructing User values
+      - proves a representative double assertion fails and clean state passes again
+      - wires consequential enforcement into the repository's normal check path
+    reject:
+      - only edits prose guidance
+      - creates a bespoke policy engine without checking existing lint mechanisms
+      - declares success because current source passes lint without a negative proof
+      - weakens types to satisfy the new rule

@@ -1,0 +1,86 @@
+---
+name: intent
+description: Run the smallest sufficient intent-engineering loop for a non-trivial task. Use as the default entry point when the user wants an outcome carried through, when the next operator is not obvious, or when work may need to move backward as evidence changes. Route among ground, specify, investigate, decide, realize, verify, validate, and learn; track evidence-backed progress; and own the overall completion claim.
+---
+
+# Intent
+
+Run the intent-engineering loop. This skill is the **controller**, not a ninth cognitive operator. It owns routing, progress, loop control, and the overall completion claim; the eight operator skills own the work itself.
+
+## Start
+
+1. **Recover the governing intent.** State the real-world outcome the user is trying to achieve. Preserve proposed interventions as context, but do not silently promote them into the objective.
+2. **Assess existing state.** Reuse evidence, specifications, decisions, artifacts, verification, and validation already present in the conversation or workspace. Do not rerun completed operators without a reason.
+3. **Choose the smallest sufficient next operator.** Route by the unresolved postcondition, not by a fixed sequence:
+   - reality is materially unclear → `ground`
+   - success or preservation conditions are materially unclear → `specify`
+   - a consequential uncertainty could change the next move → `investigate`
+   - multiple materially different interventions remain viable → `decide`
+   - a justified change must be made real → `realize`
+   - technical conformance or preserved behavior is unproven → `verify`
+   - technical correctness is established but intended outcome is unproven → `validate`
+   - surprise, failure, correction, or repeated friction warrants a durable ratchet → `learn`
+4. **Skip unnecessary operators.** A typo may route `realize → verify`. A read-only question may end after `ground` or `investigate`. Do not perform ceremony merely because an operator exists.
+
+## Run the loop
+
+For each selected operator:
+
+1. **Declare the transition.** Record why this operator is the smallest sufficient next move and what postcondition would let the loop advance.
+2. **Invoke the operator skill.** Let that skill own its method and return shape. Do not duplicate its instructions here.
+3. **Inspect evidence, not narration.** Treat the operator as complete only when its `Done when` postcondition is supported by evidence or the operator explicitly reports a blocker/remaining uncertainty.
+4. **Update progress.** Record the operator result, evidence pointers, open blocker/uncertainty, and next completion predicate using the progress protocol.
+5. **Re-route from the new state.** If evidence invalidates an earlier premise, move backward to the operator that owns that premise. Never force forward motion to preserve a plan.
+
+## Progress
+
+Maintain one compact task state for non-trivial multi-step work. It may live in the conversation for short tasks or in `.intent/<task-slug>.md` when the work is long-running, handed off, or needs an auditable artifact.
+
+Track:
+
+- **Intent** — the governing outcome.
+- **Current operator** — the move presently being executed, if any.
+- **Transitions** — operator, result, evidence pointers, and postcondition outcome.
+- **Open** — material blockers, uncertainties, failed predicates, or human decisions.
+- **Next predicate** — the concrete condition that determines the next state transition.
+
+Progress is **not a percentage** and not a prose status story. It is the set of evidenced predicates already satisfied and the smallest unresolved predicate that controls what happens next.
+
+Follow [`references/progress.md`](references/progress.md) for the canonical shape and status vocabulary.
+
+## Human decisions
+
+Find facts yourself when tools or evidence can settle them. Ask the user only for a genuine preference, product judgment, authorization, or value choice that cannot be established empirically.
+
+If such a decision blocks only one branch, continue any independent work that remains valid. Record the human decision as an open predicate rather than pretending the loop is globally blocked.
+
+## Overall completion
+
+Only this controller owns the overall task completion claim.
+
+An operator succeeding does not imply the intent is satisfied. In particular:
+
+- `realize` means a candidate change exists, not that it is correct.
+- `verify: PASS` means the artifact conforms to the specification, not that the governing intent was achieved.
+- `validate: SATISFIED` is the strongest evidence that the intended outcome was achieved, when validation is applicable and obtainable.
+- some tasks legitimately complete without `validate` or `learn`; record why they were unnecessary rather than manufacturing them.
+
+## Return
+
+For non-trivial loops, finish with:
+
+- **Intent**
+- **Result:** SATISFIED / PARTIAL / BLOCKED / FAILED / INSUFFICIENT EVIDENCE
+- **Progress** — completed operator transitions with evidence, kept compact.
+- **Open** — remaining blockers, uncertainty, or validation gap.
+- **Next move** — only when the intent is not yet satisfied.
+
+For trivial loops, return the result naturally; do not expose internal ceremony that adds no value.
+
+## Failure signals
+
+Correct course if you are running all eight operators by default, repeating work already evidenced, letting an operator self-declare completion without checking its postcondition, treating todo completion as proof, preserving a stale plan after evidence changes, asking the user for facts you can determine, or declaring the overall intent satisfied because implementation or verification passed.
+
+## Done when
+
+The governing intent is satisfied with sufficient evidence for the task, or the loop has reached an explicit terminal state (`PARTIAL`, `BLOCKED`, `FAILED`, or `INSUFFICIENT EVIDENCE`) with the controlling unresolved predicate and next move made clear.

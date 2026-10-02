@@ -1,0 +1,12 @@
+skill: validate
+cases:
+  - name: reliability-outcome
+    prompt: "The retry code is verified. Validate whether we actually stopped losing webhook events."
+    expect:
+      - returns to the real-world reliability intent
+      - uses representative outcome evidence rather than implementation metrics alone
+      - distinguishes insufficient evidence from success
+      - surfaces discrepancies and routes them into another loop
+    reject:
+      - treats passing retry tests as validation
+      - treats deployment as evidence that event loss stopped

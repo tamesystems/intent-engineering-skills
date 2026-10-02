@@ -1,0 +1,13 @@
+skill: investigate
+cases:
+  - name: latency-regression
+    prompt: "p95 latency doubled after yesterday's release. Investigate before fixing it."
+    expect:
+      - states the causal uncertainty
+      - considers multiple credible hypotheses
+      - seeks evidence that discriminates among hypotheses
+      - updates confidence based on evidence
+      - stops when evidence is sufficient for the next decision
+    reject:
+      - edits the most suspicious code immediately
+      - collects generic performance advice unrelated to the observed regression

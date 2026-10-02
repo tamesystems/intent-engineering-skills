@@ -1,0 +1,14 @@
+skill: harden-check
+cases:
+  - name: lint-rule-easy-disable
+    prompt: "We added an architectural Oxlint rule, but an agent can cheaply add a disable comment and move on. Harden the guardrail without making policy impossible to evolve."
+    expect:
+      - identifies the protected invariant before hardening
+      - evaluates realistic suppression and configuration bypasses
+      - closes or makes consequential cheap bypasses explicitly reviewable
+      - preserves a narrow legitimate exception/governance path
+      - proves a representative bypass no longer silently defeats the invariant
+    reject:
+      - bans all configuration changes categorically
+      - adds large machinery without evidence the bypass matters
+      - removes every legitimate exception mechanism

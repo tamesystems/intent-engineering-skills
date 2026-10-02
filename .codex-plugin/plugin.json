@@ -1,0 +1,36 @@
+{
+  "name": "intent-engineering",
+  "version": "0.3.0",
+  "description": "Intent controller, eight composable operators, and five executable ratchet skills for evidence-driven reliable software work.",
+  "author": {
+    "name": "Lukas Murdock"
+  },
+  "license": "MIT",
+  "keywords": [
+    "intent-engineering",
+    "agent-skills",
+    "codex",
+    "software-engineering",
+    "verification"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Intent Engineering Skills",
+    "shortDescription": "Run intent-driven work through the smallest sufficient evidence-backed loop",
+    "longDescription": "A controller and eight composable operators for moving from intent to evidence-backed, verified, validated change, plus executable ratchet skills that convert recurring engineering lessons into repository-owned constraints.",
+    "developerName": "Lukas Murdock",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Take this through the smallest sufficient intent-engineering loop.",
+      "Use $intent on this task and keep progress evidence-backed.",
+      "Verify and validate this change, then capture any durable learning.",
+      "Learn from this failure and ratchet the repository so the same class of mistake is harder to repeat."
+    ],
+    "screenshots": []
+  }
+}

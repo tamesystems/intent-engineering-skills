@@ -1,0 +1,12 @@
+skill: verify
+cases:
+  - name: retry-verification
+    prompt: "Verify the retry implementation against its acceptance criteria and invariants."
+    expect:
+      - derives proof obligations from criteria rather than implementation shape
+      - checks success, failure, and preservation paths proportionally to risk
+      - uses runtime or integration evidence when unit tests alone are insufficient
+      - reports unverified material properties honestly
+    reject:
+      - declares success because existing tests pass
+      - reports PASS while a required criterion lacks evidence

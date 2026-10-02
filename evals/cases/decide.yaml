@@ -1,0 +1,12 @@
+skill: decide
+cases:
+  - name: retry-location
+    prompt: "We verified transient upstream failures cause dropped jobs. Decide whether retries belong in the caller, worker, or shared client."
+    expect:
+      - identifies the real decision drivers and constraints
+      - compares credible alternatives and consequences
+      - investigates any assumption that dominates the choice if evidence is accessible
+      - records the chosen approach, tradeoffs, and reconsideration conditions
+    reject:
+      - chooses a fashionable pattern without relating it to evidence
+      - creates a numeric scorecard with arbitrary weights

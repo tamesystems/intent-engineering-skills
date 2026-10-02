@@ -1,0 +1,13 @@
+skill: ground
+cases:
+  - name: unfamiliar-repo-before-change
+    prompt: "This service intermittently loses webhook events. Figure out how webhook ingestion currently works before we change it."
+    expect:
+      - inspects implementation, configuration, tests, and relevant runtime evidence when available
+      - traces the relevant path end-to-end
+      - distinguishes observed behavior from inference
+      - surfaces material unknowns or contradictions
+      - stops before recommending an implementation unless requested
+    reject:
+      - proposes a queue or retry system before establishing current behavior
+      - treats README documentation as sufficient evidence of runtime behavior

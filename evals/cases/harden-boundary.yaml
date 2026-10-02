@@ -1,0 +1,15 @@
+skill: harden-boundary
+cases:
+  - name: http-cannot-import-database
+    prompt: "Our architecture says HTTP handlers depend on application operations and must never import Drizzle or database implementations directly. Enforce it."
+    expect:
+      - recovers the intended topology from repository evidence
+      - inspects current violations and legitimate exceptions
+      - prefers existing restricted-import/static policy when sufficient
+      - provides a diagnostic that names the intended application abstraction/path
+      - proves a forbidden HTTP-to-database edge fails
+      - wires the rule into normal verification if not already present
+    reject:
+      - invents unrelated layering rules
+      - adds dependency-cruiser without showing graph semantics are needed
+      - broadly ignores directories to get green

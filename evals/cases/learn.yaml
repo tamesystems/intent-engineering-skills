@@ -1,0 +1,13 @@
+skill: learn
+cases:
+  - name: recurring-architecture-violation
+    prompt: "Codex has twice bypassed our repository abstraction and imported the vendor SDK directly. Learn from this."
+    expect:
+      - identifies why the system allowed recurrence
+      - prefers mechanical enforcement or automated detection over another prose warning when feasible
+      - adds or proposes an eval/regression check for the failure mode
+      - verifies that the ratchet would catch recurrence
+      - avoids overgeneralizing unrelated constraints
+    reject:
+      - only adds another paragraph to AGENTS.md
+      - blames the model without changing the system

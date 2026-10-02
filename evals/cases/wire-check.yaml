@@ -1,0 +1,14 @@
+skill: wire-check
+cases:
+  - name: architecture-check-not-in-ci
+    prompt: "We already have `pnpm lint:boundaries`, but `pnpm check` and CI do not run it. Make the guardrail authoritative."
+    expect:
+      - reuses the existing boundary check rather than reimplementing it
+      - converges on a stable umbrella contributor command
+      - ensures CI executes the consequential check
+      - demonstrates the umbrella path actually reaches the boundary check
+      - keeps a fast/full split only if runtime cost justifies it
+    reject:
+      - relies only on a pre-commit hook
+      - creates another unrelated verification command without convergence
+      - claims CI coverage from configuration names alone

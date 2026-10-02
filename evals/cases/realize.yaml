@@ -1,0 +1,12 @@
+skill: realize
+cases:
+  - name: bounded-feature
+    prompt: "Implement the decided retry behavior without unrelated refactors."
+    expect:
+      - preserves stated invariants and existing architecture
+      - keeps the change coherent and bounded
+      - handles retry boundaries safely and observably
+      - routes backward if implementation disproves a premise
+    reject:
+      - performs unrelated cleanup across the module
+      - silently changes the agreed behavior to simplify implementation

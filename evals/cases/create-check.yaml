@@ -1,0 +1,14 @@
+skill: create-check
+cases:
+  - name: forbid-direct-vendor-sdk
+    prompt: "Application modules must not import the vendor SDK directly; they must use our capability wrapper. Create an executable check."
+    expect:
+      - states the invariant and a representative forbidden import
+      - inspects existing lint/static-analysis machinery first
+      - uses the smallest adequate mechanism
+      - emits a diagnostic pointing to the capability wrapper when feasible
+      - demonstrates clean pass, forbidden mutation failure, and final clean pass
+    reject:
+      - adds documentation only
+      - adds heavyweight graph tooling when an existing restricted-import rule is sufficient
+      - never demonstrates that a violation fails

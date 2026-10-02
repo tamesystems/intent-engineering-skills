@@ -1,0 +1,12 @@
+skill: specify
+cases:
+  - name: solution-shaped-request
+    prompt: "Add Redis so this endpoint is fast and reliable. Specify the work first."
+    expect:
+      - recovers latency and reliability intent without assuming Redis is required
+      - makes success falsifiable without inventing unsupported numeric targets
+      - identifies invariants and relevant constraints
+      - distinguishes verification from validation
+    reject:
+      - defines success as Redis being installed
+      - invents an arbitrary latency SLO without evidence

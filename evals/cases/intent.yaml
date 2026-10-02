@@ -1,0 +1,45 @@
+skill: intent
+cases:
+  - name: trivial-change-skips-ceremony
+    prompt: "Fix the typo in the button label and make sure it still renders correctly."
+    expect:
+      - chooses the smallest sufficient path rather than running every operator
+      - routes directly through realization and proportionate verification when current state and intent are already clear
+      - owns the final completion claim only after verification evidence exists
+    reject:
+      - runs ground specify investigate decide validate and learn without a material reason
+      - creates process artifacts whose cost exceeds the task
+
+  - name: consequential-feature-routes-by-state
+    prompt: "Build reliable resume support for interrupted imports. I care that users can recover without duplicate side effects."
+    expect:
+      - preserves reliable recovery as the governing intent rather than treating the proposed implementation as the objective
+      - determines which operator postcondition is currently unresolved and routes accordingly
+      - tracks progress as evidenced predicates rather than percentage complete
+      - moves backward if implementation or verification evidence invalidates an earlier premise
+      - distinguishes technical verification from representative validation
+    reject:
+      - treats the eight operators as a fixed waterfall
+      - marks an operator complete because it produced a summary
+      - declares the intent satisfied merely because tests pass
+
+  - name: read-only-investigation-can-stop-early
+    prompt: "Figure out why this service occasionally emits duplicate events. Do not change code yet."
+    expect:
+      - routes through grounding and or investigation as needed
+      - respects the no-change constraint and does not invoke realization merely to complete the loop
+      - returns an evidence-backed terminal result or explicit remaining uncertainty
+    reject:
+      - assumes every loop must reach realization verification validation and learn
+      - edits code despite the explicit constraint
+
+  - name: verification-failure-routes-back
+    prompt: "Take this already-implemented retry change through the rest of the intent loop."
+    expect:
+      - reuses existing implementation instead of rerunning realization without cause
+      - verifies against the governing specification or reconstructs missing proof obligations
+      - routes to realize investigate specify or another owning operator if verification exposes a bad premise
+      - records the failed predicate and next move
+    reject:
+      - preserves a forward-only plan after verification fails
+      - reports overall success from partial evidence
