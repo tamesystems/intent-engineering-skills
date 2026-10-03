@@ -35,6 +35,13 @@ For each selected operator:
 4. **Update progress.** Record the operator result, evidence pointers, open blocker/uncertainty, and next completion predicate using the progress protocol.
 5. **Re-route from the new state.** If evidence invalidates an earlier premise, move backward to the operator that owns that premise. Never force forward motion to preserve a plan.
 
+Keep the loop bounded by the governing outcome:
+
+- Separate required acceptance evidence from optional hardening. When the human changes scope or defers validation, update the controlling predicates immediately; preserve required safety and integrity invariants and disclose remaining limits.
+- Before expanding implementation or verification infrastructure, identify the unresolved predicate it serves and why existing evidence/tools cannot settle it. A possible improvement is not automatically a completion requirement.
+- If repeated attempts consume time without changing the evidence or next decision, reassess the hypothesis, measurement method, and approach. Continue necessary work with a discriminating next step; do not repeat the same probe or accumulate gates to demonstrate activity.
+- Reuse passing evidence until a relevant change, failure, or environment difference invalidates it. Stop adding proof once required predicates have sufficient evidence.
+
 ## Progress
 
 Maintain one compact task state for non-trivial multi-step work. It may live in the conversation for short tasks or in `.intent/<task-slug>.md` when the work is long-running, handed off, or needs an auditable artifact.
@@ -48,6 +55,8 @@ Track:
 - **Next predicate** — the concrete condition that determines the next state transition.
 
 Progress is **not a percentage** and not a prose status story. It is the set of evidenced predicates already satisfied and the smallest unresolved predicate that controls what happens next.
+
+Update the current state in place. Retain consequential decisions and superseded evidence as concise pointers; do not append a full narrative for every command or continuation. The next operator should be able to resume without rereading the entire execution history.
 
 Follow [`references/progress.md`](references/progress.md) for the canonical shape and status vocabulary.
 

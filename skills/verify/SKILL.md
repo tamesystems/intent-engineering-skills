@@ -10,13 +10,15 @@ Prove that we built the thing right. "Looks correct" is not evidence.
 ## Work
 
 1. **Recover the proof obligations.** Use acceptance criteria and invariants; do not derive correctness solely from the implementation.
-2. **Choose evidence proportional to risk.** Use the strongest practical mix of tests, type/static checks, architectural constraints, property tests, runtime inspection, logs/traces, benchmarks, security analysis, migration checks, screenshots, or manual inspection.
+2. **Choose evidence proportional to risk.** Select the smallest sufficient evidence for each required criterion and material risk, using tests, type/static checks, architectural constraints, runtime inspection, or other appropriate methods. Prefer existing checks and fixtures before creating a harness. Stronger evidence is warranted when it can change the correctness or release decision, not merely because it is available.
 3. **Exercise changed behavior.** Map evidence to each material acceptance criterion.
 4. **Exercise preservation.** Check required existing behavior and invariants, not just the happy path.
 5. **Check architectural locality when it was predicted.** If `design-change` or the specification recorded an expected blast radius, compare it with the actual diff/dependency movement. Unexpected cross-boundary changes are discrepancies to explain or investigate, not automatic failures. Count ownership boundaries and leaked knowledge, not just files.
 6. **Exercise meaningful failure paths.** Test edges implied by the design and risk, not arbitrary combinatorics.
 7. **Inspect reality when possible.** For UI work inspect the UI; for APIs exercise the API; for migrations inspect resulting data; for operational behavior inspect runtime evidence.
 8. **State limits honestly.** A passing test proves only what it tests. Identify material properties that remain unverified.
+
+Reuse successful evidence for unchanged behavior; repeat broader checks only when relevant changes, failures, environment differences, or authoritative repository requirements warrant them. Separate optional assurance from release-blocking criteria. A fixture/setup/probe failure establishes a measurement gap, not automatically a product defect: use a known-working control or a different observation when needed. Stop expanding verification when the required criteria and material risks have sufficient evidence.
 
 ## Return
 

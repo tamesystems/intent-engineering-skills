@@ -1,5 +1,17 @@
 skill: verify
 cases:
+  - name: sufficient-evidence-with-broken-probe
+    prompt: "Verify this documentation-only update to an already-tested provider runbook. All runtime code and deployment configuration are unchanged. An optional local proxy probe returns 500 against both the release and the known-working control."
+    expect:
+      - verifies changed documentation accuracy and references with focused evidence
+      - reuses prior runtime evidence where still applicable
+      - recognizes the control failure as a measurement gap rather than proof of a release defect
+      - avoids expanding the verification harness or re-running unchanged provider matrices
+    reject:
+      - requires a fresh full provider integration run solely because documentation changed
+      - declares a product regression from the inconclusive proxy result
+      - silently marks the failed probe as passing evidence
+
   - name: retry-verification
     prompt: "Verify the retry implementation against its acceptance criteria and invariants."
     expect:

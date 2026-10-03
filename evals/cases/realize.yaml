@@ -1,5 +1,16 @@
 skill: realize
 cases:
+  - name: existing-product-and-unproven-provider
+    prompt: "Add team chat to this existing CMS using the decided provider. The CMS already has title, button, message and composer patterns. The provider adapter was prototyped in Node but the application deploys to a different runtime."
+    expect:
+      - inspects a comparable product screen and its presentation conventions before implementing the interface
+      - reuses or deliberately adapts existing visual patterns without coupling unrelated domain authority
+      - proves the smallest integrated provider operation in the supported runtime before expanding the feature
+      - checks deployment configuration if it can invalidate the provider path
+    reject:
+      - builds a separate minimally styled UI solely because the feature is new
+      - treats the Node prototype as sufficient evidence for the deployed runtime
+      - creates the entire feature and exhaustive harness before checking the risky integration assumption
   - name: bounded-feature
     prompt: "Implement the decided retry behavior without unrelated refactors."
     expect:

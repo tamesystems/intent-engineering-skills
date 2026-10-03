@@ -16,6 +16,8 @@ Determine whether we built the right thing. Verification establishes conformance
 5. **Compare reality with intent.** Classify the outcome as satisfied, partially satisfied, not satisfied, or insufficient evidence.
 6. **Expose discrepancy.** Describe the gap without rationalizing it. Route the discrepancy to grounding, specification, investigation, decision, or realization as appropriate.
 
+For a UI added to an existing product, inspect the complete representative workflow inside its real layout and compare it with the product's established screens. Evaluate hierarchy, primary actions, density, typography, spacing, and relevant viewport behavior. An isolated component capture or passing interaction test does not establish visual integration. Record discrepancies or unavailable visual evidence explicitly; do not substitute functional coverage for usability or fit.
+
 ## Return
 
 - **Governing intent**

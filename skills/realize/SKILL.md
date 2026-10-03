@@ -11,9 +11,9 @@ Make the chosen change real while preserving system integrity. Code existing is 
 
 1. **Recover the contract.** Know the governing intent, relevant specification, decision, invariants, and intended verification. For a small task, these may be implicit and lightweight; do not invent ceremony.
 2. **Minimize blast radius.** Make the smallest coherent change that satisfies the contract. Avoid unrelated cleanup.
-3. **Respect architecture.** Use established boundaries and abstractions unless the decision explicitly changes them. Do not bypass constraints for convenience.
+3. **Respect architecture and product conventions.** Use established boundaries and abstractions unless the decision explicitly changes them. For UI changes, inspect a comparable existing screen and its components/styles before building; preserve its visual and interaction vocabulary unless a deliberate design change is required. Do not bypass constraints for convenience.
 4. **Preserve invariants.** Protect required behavior, data integrity, security boundaries, compatibility, and operational safety.
-5. **Work in inspectable increments.** Prefer states that can be independently understood and verified.
+5. **Work in inspectable increments.** Prefer states that can be independently understood and verified. When a change depends on an unfamiliar runtime/provider boundary, prove the smallest integrated path through that boundary before expanding around the assumption. Include deployment configuration when it can invalidate the implementation.
 6. **Harden boundaries proportionally.** Validate untrusted inputs, handle external failures deliberately, bound side effects, and make retryable operations idempotent where relevant.
 7. **Keep behavior observable.** Add the instrumentation necessary to operate, verify, or validate new behavior.
 8. **Route invalid premises backward.** If implementation disproves the specification, investigation, or decision, stop forcing the implementation and return to the owning skill.

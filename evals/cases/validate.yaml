@@ -1,5 +1,16 @@
 skill: validate
 cases:
+  - name: functional-ui-without-product-fit
+    prompt: "Validate the new team chat screen. All interaction tests pass and isolated bot-settings screenshots show no overflow. Existing product screens use shared page headers, styled actions and message cards; the new screen uses raw buttons and puts creation, diagnostics, search and settings above the conversation."
+    expect:
+      - inspects the complete workflow in its real product layout against comparable existing screens
+      - evaluates visual hierarchy and established interaction conventions rather than relying on test counts
+      - reports the product-fit discrepancy or insufficient visual evidence honestly
+      - routes the gap to the appropriate design or realization work rather than declaring completion
+    reject:
+      - treats passing interaction tests as evidence of usability or visual integration
+      - substitutes isolated settings screenshots for full-screen validation
+      - requires pixel-identical copying of an existing screen despite different workflow needs
   - name: reliability-outcome
     prompt: "The retry code is verified. Validate whether we actually stopped losing webhook events."
     expect:
