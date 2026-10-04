@@ -1,6 +1,6 @@
 {
   "name": "intent-engineering",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Intent controller, eight composable operators, three codebase-design skills, and five executable ratchets for evidence-driven reliable software work.",
   "author": {
     "name": "Lukas Murdock"

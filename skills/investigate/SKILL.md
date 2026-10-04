@@ -12,7 +12,7 @@ Reduce uncertainty enough to make the next decision well. The goal is not inform
 1. **State the uncertainty.** Write the question and how its answer could change what happens next. If it cannot affect a consequential decision, reconsider the investigation.
 2. **Establish the evidence already available.** Avoid repeating prior work.
 3. **Maintain competing hypotheses.** For causal questions, name plausible alternatives before committing to one. Include measurement or environment error when credible.
-4. **Seek discriminating evidence.** Prefer cheap, high-information observations that make hypotheses diverge: reproduction, traces, logs, profiling, history, controlled experiments, minimal prototypes, primary documentation, targeted tests.
+4. **Seek discriminating evidence.** Prefer cheap, high-information observations that make hypotheses diverge: reproduction, traces, logs, profiling, history, controlled experiments, minimal prototypes, primary documentation, targeted tests. When a performance number will drive a decision, follow [`references/performance-evidence.md`](references/performance-evidence.md) to prove the measured work happened and the comparison is valid.
 5. **Update explicitly.** Reject contradicted hypotheses, strengthen supported ones, and introduce new hypotheses when evidence requires it.
 6. **Reproduce when useful.** For defects, obtain a reliable reproduction when practical. For design uncertainty, prototype the smallest risky assumption rather than debating it abstractly.
 7. **Stop at decision sufficiency.** Do not seek certainty for its own sake.

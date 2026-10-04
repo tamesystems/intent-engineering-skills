@@ -20,12 +20,20 @@ Create a deep change boundary: substantial coherent behavior behind a small supp
 9. **Apply the deletion/change test.** If the module disappeared or its hidden implementation changed, would complexity remain contained behind its surface? If deleting the abstraction merely moves equivalent ceremony to callers, it may be shallow.
 10. **Hand enforcement to ratchets.** Once the boundary is justified, use `pave-path` to make correct use easy and `harden-boundary`/`ratchet` to make invalid access difficult or impossible.
 
+Evaluate the reader's burden on a representative operation and, when the capability is stateful, a representative transition. Compare the proposed design with the current or simplest credible alternative:
+
+- **Tracing burden:** which calls, layers, and files must a reader follow to understand the behavior? Each hop should hide a meaningful decision or enforce a real boundary. Collapse forwarding-only indirection when it adds no such value; preserve useful security, runtime, and ownership boundaries. File count alone is not the criterion.
+- **State burden:** which independent facts, flags, mirrored values, ordering rules, and lifecycle relationships must the reader hold simultaneously? Give coordinated transitions a clear owner, derive values when possible, and represent meaningful states with their required data. Splitting coupled state across helpers or hooks does not reduce the burden if callers still coordinate it.
+
+Judge the design by what a caller or maintainer no longer needs to know. A justified boundary may add a hop or retain necessary complexity while reducing leaked knowledge, risk, or change scope. Avoid replacing a straightforward flow with a generic state-machine framework or another abstraction unless it demonstrably improves the overall tradeoff.
+
 ## Return
 
 - **Module / capability**
 - **Decision hidden**
 - **Public surface**
 - **Owned internals**
+- **Reader burden** — representative trace and transition; knowledge eliminated and necessary complexity retained
 - **Dependencies / seams**
 - **Visibility and dependency direction**
 - **Testing surface**
@@ -37,4 +45,4 @@ Watch for interface-per-class ceremony, one-line pass-through modules, giant bar
 
 ## Done when
 
-The module has a small caller-oriented surface, coherent hidden responsibilities, justified seams, explicit visibility/direction, and a credible story for keeping likely future changes local.
+The module has a small caller-oriented surface, coherent hidden responsibilities, justified seams, explicit visibility/direction, and a credible story for keeping likely future changes local. A representative trace and, when relevant, state transition show that the boundary improves the overall reader and change burden rather than merely redistributing code.

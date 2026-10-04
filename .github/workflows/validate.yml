@@ -17,5 +17,7 @@ jobs:
           node-version: 22
       - name: Validate repository structure
         run: python3 scripts/validate.py
+      - name: Prove structural checks reject representative violations
+        run: python3 scripts/test_validate.py
       - name: Verify skills CLI discovery
         run: npx --yes skills@latest add . --list

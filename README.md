@@ -132,8 +132,11 @@ Run the repository checks locally:
 
 ```bash
 python3 scripts/validate.py
+python3 scripts/test_validate.py
 npx skills@latest add . --list
 ```
+
+Shared references under `references/` are canonical and are packaged with independently installable skills. After editing a canonical shared reference, run `python3 scripts/sync_references.py`; validation rejects stale copies.
 
 `evals/cases/` contains harness-neutral behavioral fixtures. Each case states a scenario, expected skill behavior, and anti-patterns; they cover the intent operators, codebase-design skills, and ratchet layer.
 

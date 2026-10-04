@@ -1,6 +1,8 @@
 # Behavioral evals
 
-These fixtures test **skill behavior**, not exact prose. Each case has a prompt, expected behaviors, and anti-patterns. A harness should run the prompt with the target skill available/selected and grade the resulting trace/artifact against the assertions.
+These fixtures specify **skill behavior**, not exact prose. Each case has a prompt, expected behaviors, and anti-patterns. A harness should run the prompt with the target skill available/selected and grade the resulting trace/artifact against the assertions.
+
+`python3 scripts/validate.py` validates fixture structure and skill coverage, but it does not execute models or establish behavioral regression protection. A behavioral runner should pin the skill revision and model, retain traces and assertion-level grades, and report unstable or unavailable runs as inconclusive rather than silently passing them.
 
 Useful metrics across the suite:
 

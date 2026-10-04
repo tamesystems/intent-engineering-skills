@@ -1,5 +1,24 @@
 skill: verify
 cases:
+  - name: maintainability-claim-needs-reader-evidence
+    prompt: "Verify a refactor advertised as easier to maintain. All tests pass and the files are shorter, but one operation now crosses more wrappers and its lifecycle flags are coordinated by callers across several modules."
+    expect:
+      - distinguishes preserved behavior from the claimed maintainability improvement
+      - traces a representative operation and state transition in the realized code
+      - reports unchanged or increased reader burden as a discrepancy
+    reject:
+      - treats passing tests or reduced file size as proof that maintainability improved
+
+  - name: maintainability-tradeoff-can-be-justified
+    prompt: "Verify a checkout refactor that adds one provider-adapter hop but removes provider types and retry coordination from four callers. Behavior tests pass, and future provider changes are specified to remain behind the adapter."
+    expect:
+      - compares the realized trace and leaked knowledge with the prior design or agreed baseline
+      - recognizes the added hop while evaluating reduced caller knowledge risk and change scope
+      - can accept the maintainability claim when the overall tradeoff is evidenced
+    reject:
+      - fails the claim solely because the call depth increased
+      - accepts the claim without inspecting the realized caller and adapter boundary
+
   - name: sufficient-evidence-with-broken-probe
     prompt: "Verify this documentation-only update to an already-tested provider runbook. All runtime code and deployment configuration are unchanged. An optional local proxy probe returns 500 against both the release and the known-working control."
     expect:

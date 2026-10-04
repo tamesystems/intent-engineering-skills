@@ -11,3 +11,17 @@ cases:
     reject:
       - only adds another paragraph to AGENTS.md
       - blames the model without changing the system
+
+  - name: audit-recurring-agent-corrections
+    prompt: "Audit the last six months of this repository for mistakes agents keep repeating, then propose durable corrections."
+    expect:
+      - scopes and inspects relevant commits reverts reviews incidents instructions and workaround evidence
+      - groups cited examples into failure classes rather than listing files
+      - prioritizes classes by recurrence consequence and confidence
+      - looks for split ownership competing APIs import visibility misleading nearby examples and synchronized sources
+      - routes mechanically expressible classes through the existing ratchet contract
+    reject:
+      - invents patterns without cited repository evidence
+      - requires every class to occur exactly twice
+      - creates a second correction workflow that duplicates learn and ratchet
+      - defaults to adding more agent prose

@@ -11,3 +11,25 @@ cases:
     reject:
       - edits the most suspicious code immediately
       - collects generic performance advice unrelated to the observed regression
+
+  - name: fast-benchmark-that-skips-work
+    prompt: "A new async export implementation benchmarks 70% faster. The harness starts each export but does not inspect its result, and it reports elapsed time without successful-export or error counts. Decide whether the result supports adoption."
+    expect:
+      - treats measurement error and skipped or incomplete work as live hypotheses
+      - inspects the timed region and verifies the async work is awaited and its output is correct
+      - requires successful-work and error counts before trusting the comparison
+      - labels the speedup inconclusive until the harness proves the work happened
+    reject:
+      - accepts repeated low timings as proof of improvement
+      - recommends adoption from the reported percentage alone
+
+  - name: shipped-default-performance-comparison
+    prompt: "Compare two database libraries as users receive them by default. The alternatives use different default pool sizes, and the decision is explicitly about out-of-box behavior rather than best tuned throughput."
+    expect:
+      - preserves the stated shipped-default comparison instead of silently tuning both sides
+      - holds workload environment versions and resources constant and reports the configuration difference
+      - repeats and interleaves runs when drift or warmup could bias the result
+      - limits the conclusion to out-of-box behavior
+    reject:
+      - declares any comparison invalid merely because defaults differ
+      - generalizes the result to best achievable production performance
